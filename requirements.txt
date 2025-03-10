@@ -1,5 +1,3 @@
-flask
+gradio
 lightgbm
 joblib
-numpy
-pandas
