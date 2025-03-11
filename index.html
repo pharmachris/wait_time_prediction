@@ -10,10 +10,35 @@
     <div class="container">
         <h1>候診時間預測</h1>
         <form id="prediction-form">
+            <!-- 看診序號 -->
             <label for="check-in-order">看診序號：</label>
-            <input type="number" id="check-in-order" required>
+            <input type="number" id="check-in-order" placeholder="輸入您的看診序號" required>
+
+            <!-- 日期 -->
+            <label for="date">日期：</label>
+            <input type="date" id="date" value="" required>
+
+            <!-- 時段（下拉選單） -->
+            <label for="time-slot">時段：</label>
+            <select id="time-slot">
+                <option value="上午">上午</option>
+                <option value="下午">下午</option>
+                <option value="晚上">晚上</option>
+            </select>
+
+            <!-- 診間代碼（預設值 H120） -->
+            <label for="room-code">診間代碼：</label>
+            <input type="text" id="room-code" value="H120">
+
+            <!-- 科別名稱（預設值 胸腔內科） -->
+            <label for="department-name">科別名稱：</label>
+            <input type="text" id="department-name" value="胸腔內科">
+
+            <!-- 提交按鈕 -->
             <button type="submit">預測</button>
         </form>
+
+        <!-- 結果顯示區域 -->
         <div id="result"></div>
     </div>
     <script src="script.js"></script>
