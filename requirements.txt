@@ -1,5 +1,0 @@
-gradio
-lightgbm
-joblib
-numpy
-pandas
