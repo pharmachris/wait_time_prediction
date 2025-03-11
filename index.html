@@ -3,42 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>候診時間預測</title>
+    <title>等待時間預測</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>候診時間預測</h1>
+        <h1>等待時間預測模型</h1>
         <form id="prediction-form">
-            <!-- 看診序號 -->
-            <label for="check-in-order">看診序號：</label>
-            <input type="number" id="check-in-order" placeholder="輸入您的看診序號" required>
+            <label for="weekday">星期幾 (0=週日, 1=週一, ..., 6=週六):</label>
+            <input type="number" id="weekday" name="weekday" min="0" max="6" required>
 
-            <!-- 日期 -->
-            <label for="date">日期：</label>
-            <input type="date" id="date" value="" required>
+            <label for="period">時間段 (0-23):</label>
+            <input type="number" id="period" name="period" min="0" max="23" required>
 
-            <!-- 時段（下拉選單） -->
-            <label for="time-slot">時段：</label>
-            <select id="time-slot">
-                <option value="上午">上午</option>
-                <option value="下午">下午</option>
-                <option value="晚上">晚上</option>
-            </select>
+            <label for="room_code">房間代碼:</label>
+            <input type="number" id="room_code" name="room_code" required>
 
-            <!-- 診間代碼（預設值 H120） -->
-            <label for="room-code">診間代碼：</label>
-            <input type="text" id="room-code" value="H120">
+            <label for="department_code">科別代碼:</label>
+            <input type="number" id="department_code" name="department_code" required>
 
-            <!-- 科別名稱（預設值 胸腔內科） -->
-            <label for="department-name">科別名稱：</label>
-            <input type="text" id="department-name" value="胸腔內科">
+            <label for="target_sequence">目標序列:</label>
+            <input type="number" id="target_sequence" name="target_sequence" required>
 
-            <!-- 提交按鈕 -->
-            <button type="submit">預測</button>
+            <label for="current_time">當前時間 (格式: HHMMSS):</label>
+            <input type="text" id="current_time" name="current_time" required>
+
+            <button type="submit">提交</button>
         </form>
-
-        <!-- 結果顯示區域 -->
         <div id="result"></div>
     </div>
     <script src="script.js"></script>
